@@ -1,0 +1,11 @@
+{
+  "npmScope": "morningharwood",
+  "projects": {
+    "morningharwood": {
+      "tags": []
+    },
+    "morningharwood-e2e": {
+      "tags": []
+    }
+  }
+}
