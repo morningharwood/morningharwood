@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { ApplicationRef, Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'app';
-  private items: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('notes').valueChanges();
+  name = 'Angular 4';
+  public items = [{title: 'noop'}];
+
+  constructor(db: AngularFirestore, app: ApplicationRef) {
+    db.collection('notes').valueChanges().subscribe((items) => {
+      this.items = items;
+      console.log(this.items);
+      app.tick();
+    });
   }
 }
