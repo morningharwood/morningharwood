@@ -9,7 +9,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class AppComponent {
   title = 'app';
   name = 'Angular 4';
-  public items = [{title: 'noop'}];
+  public items: any[];
 
   constructor(db: AngularFirestore, app: ApplicationRef) {
     db.collection('notes').valueChanges().subscribe((items) => {
