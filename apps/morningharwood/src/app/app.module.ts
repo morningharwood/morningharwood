@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NxModule } from '@nrwl/nx';
-import { FirebaseModule } from '@morningharwood/firebase';
+import { FirebaseModule } from '../../../../libs/firebase/src';
 
 
 
