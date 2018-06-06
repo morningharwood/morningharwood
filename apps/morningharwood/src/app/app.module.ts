@@ -19,7 +19,7 @@ import { FirebaseModule } from '@morningharwood/firebase';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserTransferStateModule,
-    // FirebaseModule,
+    FirebaseModule,
     RouterModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     NxModule.forRoot()
