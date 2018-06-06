@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NxModule } from '@nrwl/nx';
+import { FirebaseModule } from '@morningharwood/firebase';
+
+
 
 @NgModule({
   declarations: [
@@ -16,6 +19,7 @@ import { NxModule } from '@nrwl/nx';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserTransferStateModule,
+    // FirebaseModule,
     RouterModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     NxModule.forRoot()

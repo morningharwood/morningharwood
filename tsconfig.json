@@ -19,6 +19,12 @@
     "paths": {
       "@morningharwood/*": [
         "libs/*"
+      ],
+      "firebase/*": [
+        "dist/firebase/*"
+      ],
+      "@morningharwood/firebase": [
+        "libs/firebase/src/index.ts"
       ]
     }
   }
