@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",
@@ -26,6 +26,7 @@
     "build:prerender": "node dist/apps/morningharwood/prerender.js",
     "serve:prerender": "http-server dist/apps/morningharwood -o",
     "build:all": "ng build --prod && ng run morningharwood:server && npm run webpack:prerender && npm run build:prerender",
+    "deploy": "npm run build:all && firebase deploy",
     "help": "./node_modules/.bin/nx help"
   },
   "private": true,
