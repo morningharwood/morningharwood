@@ -9,6 +9,9 @@
     },
     "firebase": {
       "tags": []
+    },
+    "mh-ui": {
+      "tags": []
     }
   }
 }

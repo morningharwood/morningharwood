@@ -25,6 +25,12 @@
       ],
       "@morningharwood/firebase": [
         "libs/firebase/src/index.ts"
+      ],
+      "mh-ui/*": [
+        "dist/mh-ui/*"
+      ],
+      "@morningharwood/mh-ui": [
+        "libs/mh-ui/src/index.ts"
       ]
     }
   }
