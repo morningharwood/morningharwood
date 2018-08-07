@@ -1,17 +1,19 @@
-import { storiesOf } from '@storybook/angular';
+import {
+  moduleMetadata,
+  storiesOf
+} from '@storybook/angular';
 import { PostHeaderComponent } from './post-header.component';
 
 
 storiesOf('My Button', module)
+  .addDecorator(
+    moduleMetadata({})
+  )
   .add('with some emoji', () => ({
     component: PostHeaderComponent,
     props: {
-      text: '😀 😎 👍 💯'
-    }
-  }))
-  .add('with some emoji and action', () => ({
-    component: PostHeaderComponent,
-    props: {
-      text: '😀 😎 👍 💯'
+      eyebrow: 'web application',
+      headline: 'Hello Storybook',
+      subheadline: 'this is a subheadline'
     }
   }));
