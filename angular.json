@@ -167,6 +167,34 @@
           }
         }
       }
+    },
+    "portfolio": {
+      "root": "libs/portfolio",
+      "sourceRoot": "libs/portfolio/src",
+      "projectType": "library",
+      "prefix": "morningharwood",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/portfolio/src/test.ts",
+            "tsConfig": "libs/portfolio/tsconfig.spec.json",
+            "karmaConfig": "libs/portfolio/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/portfolio/tsconfig.lib.json",
+              "libs/portfolio/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "morningharwood",

@@ -25,6 +25,9 @@
       ],
       "@morningharwood/firebase": [
         "libs/firebase/src/index.ts"
+      ],
+      "@morningharwood/portfolio": [
+        "libs/portfolio/src/index.ts"
       ]
     }
   }
