@@ -10,7 +10,8 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "changeDetection": "OnPush"
+          "changeDetection": "OnPush",
+          "styleext": "scss"
         }
       },
       "architect": {
@@ -28,7 +29,7 @@
               "apps/morningharwood/src/manifest.json"
             ],
             "styles": [
-              "apps/morningharwood/src/styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           },

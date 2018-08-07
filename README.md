@@ -1,3 +1,17 @@
+##### To use storybooks you'll need to temp fix the angular.json
+From:
+```$xslt
+"styles": [
+  "apps/morningharwood/src/styles.css"
+],
+```
+to:
+```$xslt
+"styles": [
+  "src/styles.css"
+],
+```
+
 # Morningharwood
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
