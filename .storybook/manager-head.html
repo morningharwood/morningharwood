@@ -1,0 +1,21 @@
+<script>
+  document.addEventListener('keydown', function(zEvent) {
+    const whichKey = ({ key }) => {
+      switch (key) {
+        case '!':
+          return 'night-owl';
+        case '~':
+          return 'clear';
+      }
+    };
+
+    if (zEvent.ctrlKey && zEvent.shiftKey) {
+      const themeClass = whichKey(zEvent);
+      if (themeClass && themeClass !== 'clear') {
+        document.getElementById('storybook-preview-iframe').contentWindow.document.body.classList.add(themeClass);
+      } else if (themeClass !== 'clear') {
+        document.getElementById('storybook-preview-iframe').contentWindow.document.body.classList.remove('night-owl');
+      }
+    }
+  });
+</script>
