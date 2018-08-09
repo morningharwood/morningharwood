@@ -8,12 +8,14 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NxModule } from '@nrwl/nx';
 import { FirebaseModule } from '../../../../libs/firebase/src';
+import { SomeOtherComponent } from './someOther.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SomeOtherComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
