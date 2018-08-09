@@ -28,7 +28,7 @@
               "apps/morningharwood/src/manifest.json"
             ],
             "styles": [
-              "src/styles.scss"
+              "apps/morningharwood/src/styles.scss"
             ],
             "scripts": []
           },
@@ -160,6 +160,65 @@
             "tsConfig": [
               "libs/firebase/tsconfig.lib.json",
               "libs/firebase/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "themes": {
+      "root": "libs/themes",
+      "sourceRoot": "libs/themes/src",
+      "projectType": "library",
+      "prefix": "morningharwood",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/themes/src/test.ts",
+            "tsConfig": "libs/themes/tsconfig.spec.json",
+            "karmaConfig": "libs/themes/karma.conf.js",
+            "assets": [
+              "apps/morningharwood/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/themes/tsconfig.lib.json",
+              "libs/themes/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "portfolio": {
+      "root": "libs/portfolio",
+      "sourceRoot": "libs/portfolio/src",
+      "projectType": "library",
+      "prefix": "morningharwood",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/portfolio/src/test.ts",
+            "tsConfig": "libs/portfolio/tsconfig.spec.json",
+            "karmaConfig": "libs/portfolio/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/portfolio/tsconfig.lib.json",
+              "libs/portfolio/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

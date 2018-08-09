@@ -28,6 +28,9 @@
       ],
       "@morningharwood/portfolio": [
         "libs/portfolio/src/index.ts"
+      ],
+      "@morningharwood/themes": [
+        "libs/themes/src/index.ts"
       ]
     }
   }

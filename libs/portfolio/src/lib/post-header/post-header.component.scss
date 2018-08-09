@@ -1,29 +1,38 @@
-:host-context(.night-owl) {
-  header {
-    color: #E3F8FD;
-    display: flex;
-    flex-direction: column;
-  }
+@import './theme';
 
-  h1 {
-    font-size: 56px;
-    font-weight: 400;
-    order: 2;
-  }
+//:host-context(.night-owl) {
+//  header {
+//    color: #E3F8FD;
+//    display: flex;
+//    flex-direction: column;
+//  }
+//
+//  h1 {
+//    font-size: 56px;
+//    font-weight: 400;
+//    order: 2;
+//  }
+//
+//  h2 {
+//    font-family: 'Fira Sans', sans-serif;
+//    font-size: 20px;
+//    font-weight: 400;
+//    order: 3;
+//  }
+//
+//  p {
+//    color: #A273D1;
+//    font-family: 'Fira Sans', sans-serif;
+//    font-size: 16px;
+//    font-weight: 700;
+//    text-transform: uppercase;
+//    order: 1;
+//  }
+//}
 
-  h2 {
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    order: 3;
-  }
-
-  p {
-    color: #A273D1;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    order: 1;
-  }
+header {
+  background-color: var(--cardBackground);
+  color: var(--cardColor);
+  display: flex;
+  flex-direction: column;
 }

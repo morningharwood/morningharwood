@@ -15,3 +15,27 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+:root {
+  --background: #000C1D;
+  --on-background: #E3F8FD;
+  --on-background-accent: #A273D1;
+  --background-secondary: #E3F8FD;
+  --on-background-secondary: #102A44;
+}
+
+$variables: (
+  --cardColor: var(--cardColor),
+  --cardBackground: var(--cardBackground),
+  --buttonColor: var(--buttonColor),
+  --buttonBackground: var(--buttonBackground),
+  --navColor: var(--navColor),
+  --navBackground: var(--navBackground),
+  --footerColor: var(--footerColor),
+  --footerBackground: var(--footerBackground),
+  --footerAlignment: var(--footerAlignment)
+);
+
+@function var($variable) {
+  @return map-get($variables, $variable);
+}
