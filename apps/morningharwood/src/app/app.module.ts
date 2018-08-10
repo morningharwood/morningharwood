@@ -1,4 +1,7 @@
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  BrowserTransferStateModule
+} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,14 +11,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NxModule } from '@nrwl/nx';
 import { FirebaseModule } from '../../../../libs/firebase/src';
-import { SomeOtherComponent } from './someOther.component';
-
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SomeOtherComponent
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -27,6 +27,7 @@ import { SomeOtherComponent } from './someOther.component';
     NxModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}

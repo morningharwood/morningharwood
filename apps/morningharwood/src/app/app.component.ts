@@ -16,22 +16,16 @@ import { HtmlThemeService } from '../../../../libs/themes/src';
   ]
 })
 export class AppComponent {
-  @HostBinding('class.secondary') isActive = true;
-  title = 'app';
-  name = 'Angular 4';
+  @HostBinding('class.secondary') isActive = false;
   public items: any[];
 
 
   constructor(db: AngularFirestore,
-              app: ApplicationRef,
-              private htmlThemeService: HtmlThemeService) {
+              app: ApplicationRef) {
     db.collection('notes')
       .valueChanges()
       .subscribe((items) => {
         this.items = items;
-        console.log(this.items);
-        this.isActive = true;
-        this.htmlThemeService.setTheme();
         app.tick();
       });
   }
