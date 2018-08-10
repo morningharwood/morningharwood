@@ -8,6 +8,7 @@ to the same keys.
 - Fill out one entire theme.
 - Design a ui widget to manage the switching.
 - Switch Theme based on type of day/weather.
+- Add back in konami code.
 
 #### Research:
 [https://medium.com](https://medium.com/@amcdnl/theming-angular-with-css-variables-3c78a5b20b24)
