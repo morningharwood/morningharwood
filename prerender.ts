@@ -12,6 +12,9 @@ import * as fs from 'fs-extra';
 import { lsRoutes } from './ls-routes';
 
 
+const globby = require('globby');
+
+
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
@@ -30,21 +33,14 @@ const {
 
 enableProdMode();
 
-lsRoutes(AppServerModuleNgFactory, LAZY_MODULE_MAP)
-  .then((i) => {
-    console.log('***'.repeat(100));
-    console.log(i);
-    console.log('***'.repeat(100));
-  });
-
 async function prerender() {
   // Get the app index
   const browserBuild = `dist/apps/${APP_NAME}`;
   const index = await fs.readFile(join(browserBuild, 'index.html'), 'utf8');
-
+  const routes = await lsRoutes(AppServerModuleNgFactory, LAZY_MODULE_MAP);
 
   // Loop over each route
-  for (const route of ROUTES) {
+  for (const route of routes) {
     const pageDir = join(browserBuild, route);
     await fs.ensureDir(pageDir);
 
@@ -62,4 +58,10 @@ async function prerender() {
   process.exit();
 }
 
-prerender();
+async function prePublish() {
+  const components = await globby('apps/morningharwood/src/app/**/*.component.ts');
+  console.log(components);
+}
+
+prePublish();
+// prerender();

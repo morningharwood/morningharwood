@@ -26,7 +26,7 @@ export let loader: NgModuleFactoryLoader;
 export function lsRoutes<T>(
   serverFactory: NgModuleFactory<T>,
   lazyModuleMap?: any
-) {
+): any {
   const ngZone = new NgZone({ enableLongStackTrace: false });
   const rootInjector = Injector.create(
     [
