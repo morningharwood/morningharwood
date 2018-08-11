@@ -2,17 +2,18 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
-import { join, resolve } from 'path';
-(global as any).WebSocket = require('ws');
-(global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-
+import { join } from 'path';
 import { enableProdMode } from '@angular/core';
-
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import { renderModuleFactory } from '@angular/platform-server';
 
 import * as fs from 'fs-extra';
+import { lsRoutes } from './ls-routes';
+
+
+(global as any).WebSocket = require('ws');
+(global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 // Add routes manually that you need rendered
 const ROUTES = [
@@ -29,6 +30,12 @@ const {
 
 enableProdMode();
 
+lsRoutes(AppServerModuleNgFactory, LAZY_MODULE_MAP)
+  .then((i) => {
+    console.log('***'.repeat(100));
+    console.log(i);
+    console.log('***'.repeat(100));
+  });
 
 async function prerender() {
   // Get the app index
@@ -45,7 +52,7 @@ async function prerender() {
     const html = await renderModuleFactory(AppServerModuleNgFactory, {
       document: index,
       url: route,
-      extraProviders: [provideModuleMap(LAZY_MODULE_MAP)]
+      extraProviders: [ provideModuleMap(LAZY_MODULE_MAP) ]
     });
 
     await fs.writeFile(join(pageDir, 'index.html'), html);
