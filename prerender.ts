@@ -12,16 +12,8 @@ import * as fs from 'fs-extra';
 import { lsRoutes } from './ls-routes';
 
 
-const globby = require('globby');
-
-
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-
-// Add routes manually that you need rendered
-const ROUTES = [
-  '/'
-];
 
 const APP_NAME = 'morningharwood';
 
@@ -58,10 +50,5 @@ async function prerender() {
   process.exit();
 }
 
-async function prePublish() {
-  const components = await globby('apps/morningharwood/src/app/**/*.component.ts');
-  console.log(components);
-}
 
-prePublish();
-// prerender();
+prerender();
