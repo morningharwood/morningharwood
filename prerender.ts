@@ -7,10 +7,19 @@ import { enableProdMode } from '@angular/core';
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import { renderModuleFactory } from '@angular/platform-server';
-
-import * as fs from 'fs-extra';
+import * as fs from 'fs';
+import * as fse from 'fs-extra';
 import { lsRoutes } from './ls-routes';
 
+
+const domino = require('domino');
+
+
+const template = fs.readFileSync(join('.', 'dist/apps/morningharwood', 'index.html'))
+                   .toString();
+const win = domino.createWindow(template);
+global[ 'window' ] = win;
+global[ 'document' ] = win.document;
 
 (global as any).WebSocket = require('ws');
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
@@ -28,13 +37,13 @@ enableProdMode();
 async function prerender() {
   // Get the app index
   const browserBuild = `dist/apps/${APP_NAME}`;
-  const index = await fs.readFile(join(browserBuild, 'index.html'), 'utf8');
+  const index = await fse.readFile(join(browserBuild, 'index.html'), 'utf8');
   const routes = await lsRoutes(AppServerModuleNgFactory, LAZY_MODULE_MAP);
 
   // Loop over each route
   for (const route of routes) {
     const pageDir = join(browserBuild, route);
-    await fs.ensureDir(pageDir);
+    await fse.ensureDir(pageDir);
 
     // Render with Universal
     const html = await renderModuleFactory(AppServerModuleNgFactory, {
@@ -42,8 +51,10 @@ async function prerender() {
       url: route,
       extraProviders: [ provideModuleMap(LAZY_MODULE_MAP) ]
     });
-
-    await fs.writeFile(join(pageDir, 'index.html'), html);
+    console.log('***'.repeat(100));
+    console.log(global[ 'allComponents' ]);
+    console.log('***'.repeat(100));
+    await fse.writeFile(join(pageDir, 'index.html'), html);
   }
 
   console.log('done rendering :)');

@@ -31,3 +31,7 @@ import { FirebaseModule } from '../../../../libs/firebase/src';
 })
 export class AppModule {
 }
+
+
+// @ts-ignore
+// global.thing = allComponents;
