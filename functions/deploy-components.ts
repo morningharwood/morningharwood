@@ -7,37 +7,42 @@
  */
 import * as admin from 'firebase-admin';
 import * as globby from 'globby';
+import * as path from 'path';
+import { get } from 'lodash';
+import { removeExt } from 'path-extra';
 
 
 const serviceAccount = require('./service-token.json');
+const removeExtAndJoinDir = i => path.join(__dirname, removeExt(i));
+const mapRemoveExtAndJoinDir = (g) => g.map(removeExtAndJoinDir);
+const COMPONENT_COLLECTION = 'components';
+const hasValidSchema = (ref) => {
 
+    return [
+      get(ref, `[${ Object.keys(ref)[ 0 ] }].getSchema`,  false) ,
+      get(ref, `[${ Object.keys(ref)[ 0 ] }]`),
+    ];
+
+};
 
 async function prePublish(glob, db) {
-
-  const componentPaths = await globby(glob);
-  const dirPaths = componentPaths.map(i => `./${i.split('.ts')[ 0 ]}`);
-  console.log(db);
-  for (const dp of dirPaths) {
+  const componentPaths = await globby(glob)
+    .then(mapRemoveExtAndJoinDir);
+  for (const dp of componentPaths) {
     const ref = await require(dp);
+    const [ schemaFn, refKey ] = hasValidSchema(ref);
 
-    if (ref && ref[ Object.keys(ref)[ 0 ] ] && typeof ref[ Object.keys(ref)[ 0 ] ].getSchema === 'function') {
-      console.log(ref[ Object.keys(ref)[ 0 ] ].getSchema(), 'ref 1');
-
-      // const docRef = db.collection('components')
-      //                  .doc('alovelace');
-      // console.log(docRef);
-      // const setAda = docRef.set({
-      //   first: 'Ada',
-      //   last: 'Lovelace',
-      //   born: 1815
-      // });
+    if (schemaFn && schemaFn === 'function') {
+      const docRef = db.collection(COMPONENT_COLLECTION)
+                       .doc(refKey.name);
+      docRef.set({
+        schema: schemaFn()
+      });
 
     }
   }
 }
 
-// Maybe make prePublish a generator could work and yeild the getSchema().
-// Then call .next after prepublish and initFirebase async are finished.
 function initFirebase() {
   // Add firebase cred and connection
   admin.initializeApp({

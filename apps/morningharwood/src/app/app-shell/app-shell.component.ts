@@ -11,7 +11,13 @@ import {
 })
 export class AppShellComponent implements OnInit {
   public static getSchema() {
-    return 'hello yess, app shell';
+    return {
+      title: 'hello3',
+      children: [
+        { 'something': 1 },
+        { 'something': 2 }
+      ]
+    };
   }
 
   constructor() {
