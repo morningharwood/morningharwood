@@ -39,7 +39,7 @@ async function prerender() {
   const browserBuild = `dist/apps/${APP_NAME}`;
   const index = await fse.readFile(join(browserBuild, 'index.html'), 'utf8');
   const routes = await lsRoutes(AppServerModuleNgFactory, LAZY_MODULE_MAP);
-
+  routes.unshift('/');
   // Loop over each route
   for (const route of routes) {
     const pageDir = join(browserBuild, route);
@@ -51,9 +51,6 @@ async function prerender() {
       url: route,
       extraProviders: [ provideModuleMap(LAZY_MODULE_MAP) ]
     });
-    console.log('***'.repeat(100));
-    console.log(global[ 'allComponents' ]);
-    console.log('***'.repeat(100));
     await fse.writeFile(join(pageDir, 'index.html'), html);
   }
 
