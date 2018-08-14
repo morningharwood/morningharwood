@@ -15,6 +15,35 @@ export class PostHeaderComponent implements OnInit {
   @Input() headline: string;
   @Input() subheadline: string;
 
+  private static getSchema() {
+    return [
+      {
+        key: 'eyebrow',
+        type: 'input',
+        defaultValue: 'eyebrow',
+        templateOptions: {
+          label: 'Type in an eyebrow'
+        }
+      },
+      {
+        key: 'headline',
+        type: 'input',
+        defaultValue: 'headline',
+        templateOptions: {
+          label: 'Type in an headline'
+        }
+      },
+      {
+        key: 'subheadline',
+        type: 'input',
+        defaultValue: 'subheadline',
+        templateOptions: {
+          label: 'Type in an subheadline'
+        }
+      }
+    ];
+  }
+
   constructor() {
   }
 

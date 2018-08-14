@@ -34,7 +34,6 @@ const hasValidSchema = (ref) => ([
 ]);
 
 async function publishComponents(glob, db) {
-
   for (const dp of await globby(glob)
     .then(mapRemoveExtAndJoinDir)) {
     const [ schemaFn, refKey ] = hasValidSchema(await require(dp));
@@ -86,7 +85,7 @@ async function main() {
 
   const db = initFirebase();
   await publishComponents(
-    '../apps/morningharwood/src/app/**/*.component.ts',
+    '../libs/portfolio/src/lib/**/*.component.ts',
     db
   );
   publishRoutes(

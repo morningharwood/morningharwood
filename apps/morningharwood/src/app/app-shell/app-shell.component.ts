@@ -10,16 +10,6 @@ import {
   styleUrls: [ './app-shell.component.css' ]
 })
 export class AppShellComponent implements OnInit {
-  public static getSchema() {
-    return {
-      title: 'hello3',
-      children: [
-        { 'something': 1 },
-        { 'something': 2 }
-      ]
-    };
-  }
-
   constructor() {
   }
 
