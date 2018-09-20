@@ -231,7 +231,7 @@
       "root": "apps/author/",
       "sourceRoot": "apps/author/src",
       "projectType": "application",
-      "prefix": "apps/author",
+      "prefix": "morningharwood",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"

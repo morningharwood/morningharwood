@@ -1,15 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { NxModule } from '@nrwl/nx';
-import { RouterModule } from '@angular/router';
-import { SelectCollectionModule } from './select-collection/select-collection.module';
+import { CommonModule } from '@angular/common';
+import { SelectCollectionComponent } from './select-collection.component';
 import { FirebaseModule } from '@morningharwood/firebase';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
-import { BrowserAnimationsModule } from '../../../../node_modules/@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -17,17 +13,11 @@ import {
   MatInputModule,
   MatSelectModule
 } from '@angular/material';
-import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [ AppComponent ],
   imports: [
     CommonModule,
-    BrowserModule,
-    NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
-    SelectCollectionModule,
     FirebaseModule,
     ReactiveFormsModule,
     FormlyModule.forRoot(),
@@ -39,8 +29,8 @@ import { CommonModule } from '@angular/common';
     MatCheckboxModule,
     MatSelectModule,
   ],
-  providers: [],
-  bootstrap: [ AppComponent ]
+  declarations: [ SelectCollectionComponent ],
+  exports: [ SelectCollectionComponent ]
 })
-export class AppModule {
+export class SelectCollectionModule {
 }

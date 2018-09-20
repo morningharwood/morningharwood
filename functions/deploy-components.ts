@@ -12,6 +12,7 @@ import {
   get,
   isFunction
 } from 'lodash';
+import * as humanizeString from 'humanize-string';
 import { removeExt } from 'path-extra';
 import { lsRoutes } from '../ls-routes';
 import {
@@ -42,7 +43,9 @@ async function publishComponents(glob, db) {
       const docRef = db.collection(COMPONENT_COLLECTION)
                        .doc(refKey.name);
       docRef.set({
-        schema: schemaFn()
+        schema: schemaFn(),
+        name: humanizeString(refKey.name),
+        docKey: refKey.name
       }, { merge: true });
 
     }
@@ -73,7 +76,9 @@ function publishRoutes(routes: any, db: admin.firestore.Firestore) {
     const docRef = db.collection(ROUTES_COLLECTION)
                      .doc(docKey);
     docRef.set({
-      path: r
+      path: r,
+      name: humanizeString(docKey),
+      docKey
     }, { merge: true });
   }
 }

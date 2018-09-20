@@ -8,7 +8,7 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "save:components": "ts-node deploy-components.ts"
+    "migrate": "ts-node deploy-components.ts"
   },
   "main": "lib/index.js",
   "dependencies": {

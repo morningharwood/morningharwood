@@ -18,9 +18,15 @@ export class PostHeaderComponent implements OnInit {
   private static getSchema() {
     return [
       {
+        key: 'id',
+        type: 'input',
+        templateOptions: {
+          label: 'Type a uuid'
+        }
+      },
+      {
         key: 'eyebrow',
         type: 'input',
-        defaultValue: 'eyebrow',
         templateOptions: {
           label: 'Type in an eyebrow'
         }
@@ -28,7 +34,6 @@ export class PostHeaderComponent implements OnInit {
       {
         key: 'headline',
         type: 'input',
-        defaultValue: 'headline',
         templateOptions: {
           label: 'Type in an headline'
         }
@@ -36,7 +41,6 @@ export class PostHeaderComponent implements OnInit {
       {
         key: 'subheadline',
         type: 'input',
-        defaultValue: 'subheadline',
         templateOptions: {
           label: 'Type in an subheadline'
         }

@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "author",
+      "morningharwood",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "author",
+      "morningharwood",
       "kebab-case"
     ]
   }

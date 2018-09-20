@@ -11,6 +11,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NxModule } from '@nrwl/nx';
 import { FirebaseModule } from '../../../../libs/firebase/src';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -24,7 +26,17 @@ import { FirebaseModule } from '../../../../libs/firebase/src';
     FirebaseModule,
     RouterModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    NxModule.forRoot()
+    NxModule.forRoot(),
+    ReactiveFormsModule,
+    FormlyModule.forRoot(),
+    FormlyMaterialModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    RouteAdminModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]
