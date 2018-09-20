@@ -30,30 +30,21 @@ export class AppComponent {
           this.components = items;
           console.log(this.components);
         });
-
-
   }
 
   public delete(schema) {
     console.log('cannot delete for now :(');
-    // this.db.collection('blocks')
-    //     .doc('RDzx1i3kAQo3o03z6j9b')
-    //     .delete();
   }
 
   public loadAllComponentSchemas(event) {
-    console.log(event);
-    // const query = this.db.collection('blocks', ref => ref.where('route', '==', event.route));
     this.editableSchemas = [];
     this.db.collection('blocks', ref => ref.where('route', '==', event.route))
         .valueChanges()
         .subscribe(snapshot => {
-          console.log(snapshot, 'snap');
           snapshot.forEach(doc => {
             this.db.doc(doc[ 'componentRef' ])
                 .valueChanges()
                 .subscribe((item) => {
-
                   doc[ 'fields' ] = item[ 'schema' ];
                   doc[ 'model' ] = {};
                   doc[ 'options' ] = {};
