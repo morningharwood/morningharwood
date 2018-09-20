@@ -19,6 +19,7 @@
         <button type="submit" mat-stroked-button=""
                 [disabled]="!f.form.valid">Update Block
         </button>
+        <a class="delete-btn" mat-button color="accent" (click)="delete(f)">Delete</a>
       </formly-form>
     </div>
   </form>
