@@ -101,8 +101,8 @@ export class SelectCollectionComponent implements OnInit,
         .set({
           componentRef,
           routeRef,
+          schema: {},
           route: this.model.route,
-          data: {}
         });
     this.selection.emit(this.model);
   }

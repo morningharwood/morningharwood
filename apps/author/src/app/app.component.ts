@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { FormGroup } from '@angular/forms';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -11,11 +13,11 @@ import { FormGroup } from '@angular/forms';
 export class AppComponent {
   public routes: any[];
   public components: any[];
-  public blocks: any[];
   public editableSchemas: any[] = [];
   public model = {};
   public form = new FormGroup({});
   public options: any = {};
+  public block$: Observable<{ id: string }[]>;
 
   constructor(private db: AngularFirestore) {
     this.db.collection('routes')
@@ -28,7 +30,7 @@ export class AppComponent {
         .valueChanges()
         .subscribe((items) => {
           this.components = items;
-          console.log(this.components);
+          console.log(this.components, 'components');
         });
   }
 
@@ -38,24 +40,28 @@ export class AppComponent {
 
   public loadAllComponentSchemas(event) {
     this.editableSchemas = [];
-    this.db.collection('blocks', ref => ref.where('route', '==', event.route))
-        .valueChanges()
-        .subscribe(snapshot => {
-          snapshot.forEach(doc => {
-            this.db.doc(doc[ 'componentRef' ])
-                .valueChanges()
-                .subscribe((item) => {
-                  doc[ 'fields' ] = item[ 'schema' ];
-                  doc[ 'model' ] = {};
-                  doc[ 'options' ] = {};
-                  doc[ 'form' ] = new FormGroup({});
-                  this.editableSchemas.push(doc);
-                });
-          });
-        });
+    this.block$ = this.db.collection('blocks', ref => ref.where('route', '==', event.route))
+                      .snapshotChanges()
+                      .pipe(
+                        map(changes => {
+                          return changes.map(a => {
+                            const data = a.payload.doc.data();
+                            const id = a.payload.doc.id;
+                            data[ 'schema' ][ 'fields' ] = this.components.find(component => component[ 'docKey' ] === data[ 'componentRef' ][ 'id' ])[ 'schema' ];
+                            data[ 'schema' ][ 'model' ] = {};
+                            data[ 'schema' ][ 'options' ] = {};
+                            data[ 'schema' ][ 'form' ] = new FormGroup({});
+                            return { id, ...data };
+                          });
+                        }));
+
   }
 
-  public submit() {
-    console.log('submit', this.editableSchemas);
+  public submit(form) {
+    console.log(form);
+    this.db.collection('blocks')
+        .doc(form.id)
+        .set({ form: { schema: form.schema } }, { merge: true });
+    // this.block$.subscribe(console.log)
   }
 }

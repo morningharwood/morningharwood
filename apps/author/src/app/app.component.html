@@ -11,13 +11,14 @@
   </morningharwood-select-collection>
 </div>
 <div class="grid">
-  <form [formGroup]="f.form" (ngSubmit)="submit()"
-        *ngFor="let f of editableSchemas">
+  <form [formGroup]="f.schema.form" (ngSubmit)="submit(f)"
+        *ngFor="let f of block$ | async">
     <div class="card">
-      <formly-form [model]="f.model" [fields]="f.fields" [options]="f.options"
-                   [form]="f.form">
+      <formly-form [model]="f.schema.model" [fields]="f.schema.fields"
+                   [options]="f.schema.options"
+                   [form]="f.schema.form">
         <button type="submit" mat-stroked-button=""
-                [disabled]="!f.form.valid">Update Block
+                [disabled]="!f.schema.form.valid">Update Block
         </button>
         <a class="delete-btn" mat-button color="accent" (click)="delete(f)">Delete</a>
       </formly-form>
