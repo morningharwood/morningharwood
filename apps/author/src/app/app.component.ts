@@ -47,8 +47,12 @@ export class AppComponent {
                           return changes.map(a => {
                             const data = a.payload.doc.data();
                             const id = a.payload.doc.id;
+                            const hasModel = () => data && data[ 'data' ] && data[ 'data' ][ 'id' ]
+                                                   ? data[ 'data' ]
+                                                   : {};
+
                             data[ 'schema' ][ 'fields' ] = this.components.find(component => component[ 'docKey' ] === data[ 'componentRef' ][ 'id' ])[ 'schema' ];
-                            data[ 'schema' ][ 'model' ] = {};
+                            data[ 'schema' ][ 'model' ] = hasModel();
                             data[ 'schema' ][ 'options' ] = {};
                             data[ 'schema' ][ 'form' ] = new FormGroup({});
                             return { id, ...data };
@@ -58,10 +62,11 @@ export class AppComponent {
   }
 
   public submit(form) {
-    console.log(form);
-    this.db.collection('blocks')
-        .doc(form.id)
-        .set({ form: { schema: form.schema } }, { merge: true });
-    // this.block$.subscribe(console.log)
+    const model = form.schema.model;
+    const id = this.db.collection('blocks')
+                   .doc(form.id)
+                   .set({ data: model }, { merge: true });
+    console.log(id);
+    // .set({ schema: form.schema }, { merge: true });
   }
 }

@@ -28,15 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     NxModule.forRoot(),
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
-    FormlyMaterialModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    RouteAdminModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
