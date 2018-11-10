@@ -5,6 +5,16 @@ import {
   OnInit
 } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
+import {
+  NavigationEnd,
+  Router
+} from '@angular/router';
+import {
+  filter,
+  map,
+  mergeMap
+} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -18,28 +28,40 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class AppComponent implements OnInit {
   @HostBinding('class.secondary') isActive = false;
 
-  private static getSchema() {
-    return 'I"M A SCHEMA';
+  public items: any;
+  private router$: Observable<any>;
+  private merged$: Observable<any[]>;
+
+  constructor(private db: AngularFirestore,
+              private app: ApplicationRef,
+              private router: Router) {
   }
 
-  public items: any[];
-
-
-  constructor(db: AngularFirestore,
-              app: ApplicationRef) {
-    // db.collection('notes')
-    //   .valueChanges()
-    //   .subscribe((items) => {
-    //     this.items = items;
-    //     app.tick();
-    //   });
-  }
 
   ngOnInit() {
-    // // @ts-ignore
-    // const allComponents = ng.probe(window.getAllAngularRootElements()[ 0 ]);
-    // console.log(allComponents);
-    // // @ts-ignore
-    // global.allComponents = allComponents;
+    this.router$ = this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map(x => x[ 'url' ])
+    );
+
+    this.merged$ = this.router$.pipe(
+      mergeMap(val => {
+          const calcUrl = () => val === '/'
+                                ? 'root'
+                                : val;
+          return this.db.collection('blocks', ref => ref.where('route', '==', calcUrl()))
+                     .valueChanges();
+        }
+      ));
+
+    this.merged$.subscribe(items => {
+      this.items = items.map(i => i[ 'data' ]).reduce((acc, val) => {
+        acc[val.id] = val;
+        return acc;
+      }, {});
+      console.log(this.items[ 0 ]);
+      this.app.tick();
+    });
+
   }
 }

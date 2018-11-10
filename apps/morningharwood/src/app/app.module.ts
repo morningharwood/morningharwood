@@ -14,6 +14,8 @@ import { FirebaseModule } from '../../../../libs/firebase/src';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PostHeaderModule } from '../../../../libs/portfolio/src/lib/post-header/post-header.module';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     NxModule.forRoot(),
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PostHeaderModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

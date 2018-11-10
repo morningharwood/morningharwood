@@ -4,16 +4,18 @@ import {
   OnInit
 } from '@angular/core';
 
-
+export interface PostHeaderComponentData {
+  eyebrow: string;
+  headline: string;
+  subheadline: string;
+}
 @Component({
   selector: 'morningharwood-post-header',
   templateUrl: './post-header.component.html',
   styleUrls: [ './post-header.component.scss' ]
 })
 export class PostHeaderComponent implements OnInit {
-  @Input() eyebrow: string;
-  @Input() headline: string;
-  @Input() subheadline: string;
+  @Input() data: PostHeaderComponentData;
 
   private static getSchema() {
     return [
