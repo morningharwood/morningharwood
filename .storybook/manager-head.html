@@ -10,11 +10,12 @@
     };
 
     if (zEvent.ctrlKey && zEvent.shiftKey) {
+      console.log('ctrl');
       const themeClass = whichKey(zEvent);
       if (themeClass && themeClass !== 'clear') {
-        document.getElementById('storybook-preview-iframe').contentWindow.document.body.classList.add(themeClass);
+        document.getElementById('storybook-preview-iframe').contentWindow.documentElement.body.classList.add(themeClass);
       } else if (themeClass !== 'clear') {
-        document.getElementById('storybook-preview-iframe').contentWindow.document.body.classList.remove('night-owl');
+        document.getElementById('storybook-preview-iframe').contentWindow.documentElement.body.classList.remove('night-owl');
       }
     }
   });

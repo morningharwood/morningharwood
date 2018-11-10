@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const APP_NAME = 'morningharwood';
 
 module.exports = {
-  entry: {  prerender: './prerender.ts' },
+  entry: { prerender: './prerender.ts' },
   resolve: { extensions: ['.js', '.ts'] },
   mode: 'development',
   target: 'node',
@@ -30,4 +30,4 @@ module.exports = {
       {}
     )
   ]
-}
+};

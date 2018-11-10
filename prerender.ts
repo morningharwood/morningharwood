@@ -18,7 +18,8 @@ const domino = require('domino');
 const template = fs.readFileSync(join('.', 'dist/apps/morningharwood', 'index.html'))
                    .toString();
 const win = domino.createWindow(template);
-global[ 'window' ] = win;
+console.log(win);
+// global[ 'window' ] = win;
 global[ 'document' ] = win.document;
 
 (global as any).WebSocket = require('ws');
