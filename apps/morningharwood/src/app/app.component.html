@@ -1,12 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
 
-<morningharwood-post-header [data]="items?.header"
->
+
+<morningharwood-main-navigation
+  [data]="items?.mainnav"></morningharwood-main-navigation>
+
+<morningharwood-post-header [data]="items?.header">
 </morningharwood-post-header>
-<!--<ul>-->
-<!--<li class="text" *ngFor="let item of items">-->
-<!--{{item.title}}-->
-<!--</li>-->
-<!--</ul>-->
 
 <router-outlet></router-outlet>

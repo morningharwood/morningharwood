@@ -78,7 +78,7 @@
             "tsConfig": "apps/morningharwood/tsconfig.spec.json",
             "karmaConfig": "apps/morningharwood/karma.conf.js",
             "styles": [
-              "apps/morningharwood/src/styles.css"
+              "apps/morningharwood/src/styles.scss"
             ],
             "scripts": [],
             "assets": [

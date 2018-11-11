@@ -3,25 +3,27 @@ import { PostHeaderComponent } from './post-header.component';
 import { withBackgrounds } from '@storybook/addon-backgrounds';
 
 
-storiesOf('My Button', module)
+storiesOf('Post Header', module)
   .addDecorator(
     withBackgrounds([
       {
-        name: 'nightowl',
-        value: '#000C1D',
+        name: 'white',
+        value: '#fff',
         default: true
       },
       {
-        name: 'facebook',
-        value: '#3b5998'
+        name: 'nightowl',
+        value: '#000C1D'
       }
     ])
   )
-  .add('with some emoji', () => ({
+  .add('with default fixture data', () => ({
     component: PostHeaderComponent,
     props: {
-      eyebrow: 'web application',
-      headline: 'Nike Jordan Editor',
-      subheadline: 'A real-time WYSIWYG editor for project owners, designers, copywriters to rapid prototype pages.'
+      data: {
+        eyebrow: 'web application',
+        headline: 'Nike Jordan Editor',
+        subheadline: 'A real-time WYSIWYG editor for project owners, designers, copywriters to rapid prototype pages.'
+      }
     }
   }));

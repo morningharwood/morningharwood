@@ -1,0 +1,8 @@
+<nav>
+  <div *ngFor="let d of data?.items">
+    <a [routerLink]="d?.href"
+       target="{{d?.target}}">{{d?.text}}
+    </a>
+  </div>
+</nav>
+

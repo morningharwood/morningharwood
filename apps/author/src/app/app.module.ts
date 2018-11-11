@@ -18,10 +18,10 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
-
+import { RepeatTypeComponent } from './repeat-section';
 
 @NgModule({
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent,    RepeatTypeComponent ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -30,7 +30,11 @@ import { CommonModule } from '@angular/common';
     SelectCollectionModule,
     FirebaseModule,
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({
+      types: [
+        { name: 'repeat', component: RepeatTypeComponent },
+      ],
+    }),
     FormlyMaterialModule,
     BrowserAnimationsModule,
     MatButtonModule,

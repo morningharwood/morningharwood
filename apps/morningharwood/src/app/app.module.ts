@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PostHeaderModule } from '../../../../libs/portfolio/src/lib/post-header/post-header.module';
+import { MainNavigationModule } from '../../../../libs/portfolio/src/lib/main-navigation/main-navigation.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PostHeaderModule } from '../../../../libs/portfolio/src/lib/post-header
     NxModule.forRoot(),
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    PostHeaderModule
+    PostHeaderModule,
+    MainNavigationModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

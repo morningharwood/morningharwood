@@ -59,7 +59,6 @@ export class AppComponent implements OnInit {
         acc[val.id] = val;
         return acc;
       }, {});
-      console.log(this.items[ 0 ]);
       this.app.tick();
     });
 
