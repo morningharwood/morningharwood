@@ -11,7 +11,9 @@ export default meta;
 
 export const Primary: Story = {
   args: {
-    size: "medium",
+    size: "xxl",
+    kind: "primary",
+    shape: "pill"
   },
   render: (props) => <Button {...props}>Some button</Button>,
 };
