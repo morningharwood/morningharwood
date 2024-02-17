@@ -17,3 +17,11 @@ export const Primary: Story = {
   },
   render: (props) => <Button {...props}>Some button</Button>,
 };
+export const Secondary: Story = {
+  args: {
+    size: "xxl",
+    kind: "secondary",
+    shape: "pill"
+  },
+  render: (props) => <Button {...props}>Some button</Button>,
+};

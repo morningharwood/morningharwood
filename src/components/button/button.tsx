@@ -8,7 +8,7 @@ export interface ButtonProps {
 
 export const Button = component$<ButtonProps>((props) => {
   const {kind = "primary", size = "medium", shape = "default" } = props;
-  const sharedClasses = "font-semibold shadow-sm";
+  const sharedClasses = "shadow-sm font-display";
   const shapeClasses = {
     default: "rounded",
     pill: "rounded-full",
