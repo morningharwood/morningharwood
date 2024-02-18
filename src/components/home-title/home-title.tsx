@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 
-const HomeTitle = component$((props) => {
+const HomeTitle = component$(() => {
   return (
     <div class="text-primary-default dark:text-secondary-default grid font-display uppercase">
       <h1 class="releative inline-block text-2xl leading-6">
