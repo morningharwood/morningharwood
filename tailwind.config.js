@@ -2,33 +2,33 @@
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    colors: {
-      primary: {
-        hover: "var(--primary-400)",
-        default: "var(--primary-500)",
-        active: "var(--primary-600)",
-        focus: "var(--primary-700)",
-        selected: {
-          hover: "var(--primary-500)",
-          default: "var--primary-600)",
-          active: "var(--primary-700)",
-          focus: "var(--primary-800)",
-        },
-      },
-      secondary: {
-        hover: "var(--secondary-400)",
-        default: "var(--secondary-500)",
-        active: "var(--secondary-600)",
-        focus: "var(--secondary-700)",
-        selected: {
-          hover: "var(--secondary-500)",
-          default: "var--secondary-600)",
-          active: "var(--secondary-700)",
-          focus: "var(--secondary-800)",
-        },
-      },
-    },
     extend: {
+      colors: {
+        primary: {
+          hover: "var(--primary-400)",
+          default: "var(--primary-500)",
+          active: "var(--primary-600)",
+          focus: "var(--primary-700)",
+          selected: {
+            hover: "var(--primary-500)",
+            default: "var--primary-600)",
+            active: "var(--primary-700)",
+            focus: "var(--primary-800)",
+          },
+        },
+        secondary: {
+          hover: "var(--secondary-400)",
+          default: "var(--secondary-500)",
+          active: "var(--secondary-600)",
+          focus: "var(--secondary-700)",
+          selected: {
+            hover: "var(--secondary-500)",
+            default: "var--secondary-600)",
+            active: "var(--secondary-700)",
+            focus: "var(--secondary-800)",
+          },
+        },
+      },
       fontFamily: {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",

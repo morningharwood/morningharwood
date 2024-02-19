@@ -1,5 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import classNames from "classnames";
+import classs from "classnames";
 export interface ButtonProps {
   size: "small" | "medium" | "large" | "xl" | "xxl";
   kind: "primary" | "secondary";
@@ -28,7 +28,7 @@ export const Button = component$<ButtonProps>((props) => {
   return (
       <button
           type="button"
-          class={classNames(sharedClasses, shapeClasses[shape], sizeClasses[size], kindClasses[kind])}
+          class={classs(sharedClasses, shapeClasses[shape], sizeClasses[size], kindClasses[kind])}
       >
         <Slot></Slot>
       </button>

@@ -41,6 +41,7 @@
     "@storybook/html-vite": "^7.4.6",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
+    "@types/animejs": "^3.1.12",
     "@types/eslint": "^8.56.2",
     "@types/node": "^20.11.6",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
@@ -63,6 +64,7 @@
   },
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
+    "animejs": "^3.2.2",
     "classnames": "^2.5.1"
   }
 }
