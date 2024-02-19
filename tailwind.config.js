@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+
     extend: {
+      fontSize: {
+       'xxs': "0.375rem",
+      },
       colors: {
         primary: {
           hover: "var(--primary-400)",

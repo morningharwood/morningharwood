@@ -5,6 +5,8 @@ import { Boner } from "~/components/boner/boner";
 import { MenuNavigation } from "~/components/menu-naivgation/menu-navigation";
 import { MenuNavigationItem } from "~/components/menu-naivgation/menu-navigation-item";
 import type { MenuItem } from "~/components/menu-naivgation/types";
+import { RunningHeader } from "~/components/running-header/running-header";
+import { HomeSocial } from "~/components/home-social/home-social";
 
 export default component$(() => {
   const data = {
@@ -33,11 +35,13 @@ export default component$(() => {
       <div class="div1">
         <HomeTitle />
       </div>
-      <div class="div2"></div>
+      <div class="div2"><HomeSocial /></div>
       <div class="div3"></div>
       <div class="div4"></div>
       <div class="div5"></div>
-      <div class="div6"></div>
+      <div class="div6">
+        <RunningHeader />
+      </div>
       <div class="div7">
         <MenuNavigation>
           {data.value.links.map((item: MenuItem, index: number) => {
