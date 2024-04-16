@@ -1,4 +1,4 @@
-import { component$, useVisibleTask$, useSignal } from "@builder.io/qwik";
+import { component$, $, useSignal, useOnDocument } from "@builder.io/qwik";
 export const getAge = (birthDate: string) => {
   const date = new Date();
   const time = new Date(birthDate).getTime();
@@ -23,15 +23,18 @@ const DateCounter = component$(({ inView = true }: PropsType) => {
   const years = range(mattAge + 1, new Date().getFullYear() - mattAge);
 
   // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(() => {
-    setInterval(() => {
-      if (inView) {
-        const len = years.length - 1;
-        const next = count.value + 1;
-        count.value = Math.min(next, len);
-      }
-    }, 80);
-  });
+  useOnDocument(
+    "DOMContentLoaded",
+    $(() => {
+      setInterval(() => {
+        if (inView) {
+          const len = years.length - 1;
+          const next = count.value + 1;
+          count.value = Math.min(next, len);
+        }
+      }, 80);
+    }),
+  );
 
   return <span class="pl-1 pr-1">{years[count.value]} </span>;
 });

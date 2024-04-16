@@ -67,14 +67,37 @@ html, body {
   height: 100%;
 }
 
-.div1 { grid-area: 2 / 1 / 7 / 33; background: red; }
-.div2 { grid-area: 1 / 1 / 2 / 31; background: green;}
-.div3 { grid-area: 25 / 2 / 33 / 6; background: yellow;}
-.div4 { grid-area: 18 / 3 / 20 / 31; background: blue;}
-.div5 { grid-area: 15 / 3 / 19 / 31;background: pink; }
-.div6 { grid-area: 7 / 1 / 8 / 33; background: orange; }
-.div7 { grid-area: 25 / 6 / 33 / 33; background: violet;}
-.div8 { grid-area: 1 / 31 / 2 / 33; background: papayawhip;}
+.div1 {
+  grid-area: 2 / 1 / 7 / 33;
+}
+
+.div2 {
+  grid-area: 1 / 1 / 2 / 31;
+}
+
+.div3 {
+  grid-area: 25 / 2 / 33 / 6;
+}
+
+.div4 {
+  grid-area: 18 / 3 / 20 / 31;
+}
+
+.div5 {
+  grid-area: 15 / 3 / 19 / 31;
+}
+
+.div6 {
+  grid-area: 7 / 1 / 8 / 33;
+}
+
+.div7 {
+  grid-area: 25 / 6 / 33 / 33;
+}
+
+.div8 {
+  grid-area: 1 / 31 / 2 / 33;
+}
 
 @media (min-width: 769px) {
   .parent {
@@ -86,12 +109,35 @@ html, body {
     height: 100%;
   }
 
-  .div1 { grid-area: 1 / 1 / 5 / 9; }
-  .div2 { grid-area: 5 / 1 / 6 / 9; }
-  .div3 { grid-area: 6 / 1 / 12 / 9; }
-  .div4 { grid-area: 29 / 1 / 32 / 9; }
-  .div5 { grid-area: 15 / 9 / 20 / 25; }
-  .div6 { grid-area: 1 / 25 / 23 / 33; }
-  .div7 { grid-area: 23 / 25 / 31 / 33; }
-  .div8 { grid-area: 31 / 32 / 33 / 33; }
+  .div1 {
+    grid-area: 1 / 1 / 1 / 9;
+  }
+
+  .div2 {
+    grid-area: 2 / 1 / 6 / 9;
+  }
+
+  .div3 {
+    grid-area: 3 / 1 / 12 / 9;
+  }
+
+  .div4 {
+    grid-area: 29 / 1 / 32 / 32;
+  }
+
+  .div5 {
+    grid-area: 15 / 9 / 20 / 25;
+  }
+
+  .div6 {
+    grid-area: 1 / 25 / 20 / 33;
+  }
+
+  .div7 {
+    grid-area: 20 / 1 / 31 / 33;
+  }
+
+  .div8 {
+    grid-area: 31 / 32 / 33 / 33;
+  }
 }

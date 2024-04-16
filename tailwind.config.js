@@ -2,15 +2,14 @@
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-
     extend: {
       fontSize: {
-       'xxs': "0.375rem",
+        xxs: "0.375rem",
       },
       colors: {
         primary: {
           hover: "var(--primary-400)",
-          default: "var(--primary-500)",
+          default: "var(--primary-800)",
           active: "var(--primary-600)",
           focus: "var(--primary-700)",
           selected: {
