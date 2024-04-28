@@ -23,7 +23,6 @@ const RunningHeader = component$(() => {
       left: -3.25rem;
       top: .875rem;
       width: 2rem;
-      background-color: white;
       height: .25rem;
     }
   `);
@@ -41,16 +40,16 @@ const RunningHeader = component$(() => {
 
   return (
     <p
-      class="line absolute -top-[5%]      flex w-full origin-left rotate-90 items-center justify-start font-display text-xs"
+      class="line absolute -top-8 flex w-full origin-left rotate-90 items-center justify-start font-display text-xs before:bg-primary-default dark:before:bg-secondary-default"
       onMouseEnter$={() => (play.value = false)}
       onMouseLeave$={() => (play.value = true)}
     >
-      <span class="pr-2 text-xs text-secondary-default no-underline dark:text-secondary-default">
+      <span class="pr-2 text-xs text-primary-default no-underline dark:text-secondary-default">
         Contact me about
       </span>
       <a
         href="mailto:matthhar12@gmail.com"
-        class="max-w-[200px] overflow-hidden text-ellipsis whitespace-pre rounded-full bg-primary-default bg-primary-default px-2 py-2 text-xs capitalize no-underline dark:bg-secondary-default dark:text-primary-default"
+        class="max-w-[200px] overflow-hidden text-ellipsis whitespace-pre rounded-full bg-primary-default px-2 py-2 text-xs capitalize text-secondary-default no-underline dark:bg-secondary-default dark:text-primary-default"
       >
         {shuffledInterests[count.value].name || "......."}
       </a>

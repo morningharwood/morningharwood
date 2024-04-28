@@ -70,7 +70,7 @@ const HomeMenu = component$((props: { data: RouteData }) => {
               <div key={idx}>
                 <a
                   href={link.href}
-                  class="text-primary-default after:hover:bg-primary-default dark:text-secondary-default hover:dark:text-primary-default after:hover:dark:bg-secondary-default"
+                  class="text-primary-default hover:text-secondary-default after:hover:bg-primary-default dark:text-secondary-default hover:dark:text-primary-default after:hover:dark:bg-secondary-default"
                 >
                   <span>{link.title}</span>{" "}
                   <span class="hp-nav-number font-mono">0{idx + 1}</span>

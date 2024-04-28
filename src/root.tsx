@@ -23,11 +23,14 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
-        <CSSThemeScript/>
+        <CSSThemeScript />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
       </head>
-      <body lang="en" class="bg-secondary-default dark:bg-primary-default">
+      <body
+        lang="en"
+        class="bg-secondary-default selection:bg-teal-300 selection:text-teal-900 dark:bg-primary-default"
+      >
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>

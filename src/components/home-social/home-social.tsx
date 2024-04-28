@@ -1,4 +1,10 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { Discord } from "~/icons/discord";
+import { Facebook } from "~/icons/facebook";
+import { Gmail } from "~/icons/gmail";
+import { Instagram } from "~/icons/instagram";
+import { Linkedin } from "~/icons/linkedin";
+import { XTwitter } from "~/icons/x";
 
 const HomeSocial = component$(() => {
   useStylesScoped$(`
@@ -82,72 +88,37 @@ const HomeSocial = component$(() => {
       <ul>
         <li>
           <a href="">
-            <img
-              width="12"
-              height="12"
-              alt="Linkedin social icon"
-              src="./img/linkedin.svg"
-            />
+            <Linkedin />
             <span>LinkedIn</span>
           </a>
         </li>
         <li>
           <a href="">
-            <img
-              width="12"
-              height="12"
-              alt="X formally Twitter social icon"
-              src="./img/x.svg"
-              class="-rotate-90"
-            />
+            <XTwitter />
             <span>Twitter</span>
           </a>
         </li>
         <li>
           <a href="">
-            <img
-              width="12"
-              height="12"
-              alt="Facebook social icon"
-              src="./img/facebook.svg"
-              class="-rotate-90"
-            />
+            <Facebook />
             <span>Facebook</span>
           </a>
         </li>
         <li>
           <a href="">
-            <img
-              width="12"
-              height="12"
-              alt="Gmail social icon"
-              src="./img/gmail.svg"
-              class="-rotate-90"
-            />
+            <Gmail />
             <span>Gmail</span>
           </a>
         </li>
         <li>
           <a href="">
-            <img
-              width="12"
-              height="12"
-              alt="Instagram social icon"
-              src="./img/instagram.svg"
-              class="-rotate-90"
-            />
+            <Instagram />
             <span>Instagram</span>
           </a>
         </li>
         <li>
           <a href="">
-            <img
-              width="12"
-              height="12"
-              alt="Discord social icon"
-              src="./img/discord.svg"
-              class="-rotate-90"
-            />
+            <Discord />
             <span>Discord</span>
           </a>
         </li>
