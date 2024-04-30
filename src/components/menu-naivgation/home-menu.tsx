@@ -1,12 +1,16 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import type { Signal } from "@builder.io/qwik";
 import type { RouteData } from "~/components/types";
 
-const HomeMenu = component$((props: { data: RouteData }) => {
-  const { data } = props;
+type HomeMenuProps = {
+  data: RouteData;
+  activeMenuItem: Signal<string>;
+};
+
+const HomeMenu = component$<HomeMenuProps>((props) => {
+  const { data, activeMenuItem } = props;
   useStylesScoped$(`
   .home-nav {
-
-  
     & ul {
       list-style-type: none;
       padding: 0;
@@ -42,8 +46,6 @@ const HomeMenu = component$((props: { data: RouteData }) => {
         @media (orientation: landscape) {
           font-size: 3.75rem;
         }
-  
-  
       }
   
       & .hp-nav-number {
@@ -54,6 +56,7 @@ const HomeMenu = component$((props: { data: RouteData }) => {
       }
     }
   }
+
   @media (orientation: landscape) {
     .home-nav ul a:hover:after {
       right: -4rem;
@@ -71,6 +74,8 @@ const HomeMenu = component$((props: { data: RouteData }) => {
                 <a
                   href={link.href}
                   class="text-primary-default hover:text-secondary-default after:hover:bg-primary-default dark:text-secondary-default hover:dark:text-primary-default after:hover:dark:bg-secondary-default"
+                  onMouseEnter$={() => (activeMenuItem.value = link.title)}
+                  onMouseLeave$={() => (activeMenuItem.value = "")}
                 >
                   <span>{link.title}</span>{" "}
                   <span class="hp-nav-number font-mono">0{idx + 1}</span>

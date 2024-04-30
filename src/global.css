@@ -107,17 +107,22 @@ p {
 .div8 {
   grid-area: 1 / 31 / 2 / 33;
 }
+.div9 {
+  grid-area: 7 / 13 / 26 / 21;
+}
 
 @media (min-width: 769px) {
   .parent {
     display: grid;
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(32, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
     height: 100%;
   }
-
+  .div8 {
+    grid-area: 31 / 32 / 33 / 33;
+  }
   .div1 {
     grid-area: 1 / 1 / 1 / 9;
   }
@@ -145,8 +150,15 @@ p {
   .div7 {
     grid-area: 20 / 1 / 31 / 33;
   }
+}
 
-  .div8 {
-    grid-area: 31 / 32 / 33 / 33;
-  }
+.translate-z-in {
+  transform: rotateZ(0deg) rotateY(0deg);
+  opacity: .6;
+  mix-blend-mode: exclusion;
+}
+.translate-z-out {
+  transform: rotateZ(90deg) rotateY(90deg);
+  opacity: 0;
+  mix-blend-mode: exclusion;
 }

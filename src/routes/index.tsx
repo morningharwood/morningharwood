@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { HomeTitle } from "~/components/home-title/home-title";
 import { Boner } from "~/components/boner/boner";
@@ -9,9 +9,11 @@ import { HomeSubheader } from "~/components/home-subheader/home-subheader";
 import { DateTicker } from "~/components/date-ticker/date-ticker";
 import type { RouteData } from "~/components/types";
 import { ThemeSwitcher } from "~/components/theme-switcher/theme-switcher";
-import {metadataDefaults} from "~/data/meta-factory";
+import { metadataDefaults } from "~/data/meta-factory";
 
 export default component$(() => {
+  const activeMenuItem = useSignal("");
+  console.log(activeMenuItem.value);
   const data: RouteData = {
     value: {
       links: [
@@ -48,17 +50,54 @@ export default component$(() => {
         <HomeSubheader />
       </div>
       <div class="div5">
-        {" "}
-        <Boner />
+        <Boner activeMenuItem={activeMenuItem} />
       </div>
-      <div class="div6 relative flex hidden items-start justify-center md:flex">
+      <div class="div6 relative items-start justify-center md:flex">
         <RunningHeader />
       </div>
       <div class="div7 flex items-end justify-end">
-        <HomeMenu data={data} />
+        <HomeMenu data={data} activeMenuItem={activeMenuItem} />
       </div>
-      <div class="div8 relative flex justify-center items-center md:translate-x-16 md:translate-y-16">
+      <div class="div8 relative flex items-center justify-center md:translate-x-16 md:translate-y-16">
         <ThemeSwitcher />
+      </div>
+      <div
+        class={`div9 bg relative rounded-lg transition-all  ease-in-out dark:border-4 dark:border-primary-default ${activeMenuItem.value ? "translate-z-in flex" : "translate-z-out blur-2xl"}`}
+      >
+        <video
+          autoplay
+          muted
+          loop
+          class={`absolute h-full w-full rounded-lg object-cover ${activeMenuItem.value === "Work" ? "opacity-100" : "opacity-0"}`}
+        >
+          <source
+            src="https://res.cloudinary.com/morningharwood/video/upload/v1696721624/portfolio-2024/uber-work.webm"
+            type="video/mp4"
+          />
+        </video>
+
+        <video
+          autoplay
+          muted
+          loop
+          class={`absolute h-full w-full rounded-lg object-cover ${activeMenuItem.value === "Lab" ? "opacity-100" : "opacity-0"}`}
+        >
+          <source
+            src="https://res.cloudinary.com/morningharwood/video/upload/v1714358813/portfolio-2024/ssz8fowui9p2ihnfuzwu.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <video
+          autoplay
+          muted
+          loop
+          class={`absolute h-full w-full rounded-lg object-cover ${activeMenuItem.value === "Profile" ? "opacity-100" : "opacity-0"}`}
+        >
+          <source
+            src="https://res.cloudinary.com/morningharwood/video/upload/f_auto,q_auto/v1590168964/Profile/matthew-harwood-wavy_q68pdb.webm"
+            type="video/mp4"
+          />
+        </video>
       </div>
     </main>
   );

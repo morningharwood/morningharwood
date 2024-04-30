@@ -1,8 +1,13 @@
 import anime from "animejs";
 import { $, component$, useOnDocument, useSignal } from "@builder.io/qwik";
+import type { Signal } from "@builder.io/qwik";
 import { DateCounter } from "./date-counter";
 
-const Boner = component$(() => {
+type BonerProps = {
+  activeMenuItem: Signal<string>;
+};
+const Boner = component$<BonerProps>((props) => {
+  const { activeMenuItem } = props;
   const ref = useSignal<Element>();
   const ref2 = useSignal<Element>();
   const inView = useSignal(false);
@@ -58,7 +63,7 @@ const Boner = component$(() => {
 
   return (
     <div
-      class="pointer-events-none absolute inset-0 z-0 flex items-center justify-center px-6 py-4 lg:px-20 lg:py-16"
+      class={`pointer-events-none absolute inset-0 z-0 flex items-center justify-center px-6 py-4 transition-all ease-in-out lg:px-20 lg:py-16 ${activeMenuItem.value ? "blur-2xl" : ""}`}
       data-name="Boner"
     >
       <div
