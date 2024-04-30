@@ -4,7 +4,7 @@ import { HomeTitle } from "~/components/home-title/home-title";
 import { Boner } from "~/components/boner/boner";
 import { RunningHeader } from "~/components/running-header/running-header";
 import { HomeSocial } from "~/components/home-social/home-social";
-import { HomeMenu } from "~/components/menu-naivgation/home-menu";
+import { HomeMenu } from "#components/home-naivgation/home-menu";
 import { HomeSubheader } from "~/components/home-subheader/home-subheader";
 import { DateTicker } from "~/components/date-ticker/date-ticker";
 import type { RouteData } from "~/components/types";

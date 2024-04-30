@@ -3,6 +3,7 @@ import { isNil } from "~/utils/is-nil";
 
 const useFlyInOnce = (delay: number, startPos = [0, "175%", 0]) => {
   const ref = useSignal<Element>();
+
   useOnDocument(
     "DOMContentLoaded",
     $(() => {

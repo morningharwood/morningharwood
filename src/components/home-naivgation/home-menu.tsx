@@ -1,6 +1,7 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import type { Signal } from "@builder.io/qwik";
 import type { RouteData } from "~/components/types";
+import { useFlyInOnce } from "../../hooks/use-fly-in-once";
 
 type HomeMenuProps = {
   data: RouteData;
@@ -64,27 +65,47 @@ const HomeMenu = component$<HomeMenuProps>((props) => {
   }
 }
   `);
+
   return (
     <div class="home-nav">
       <nav class="font-display ">
         <ul class="-md:hover:after:right-16">
           {data.value.links.map((link, idx) => {
             return (
-              <div key={idx}>
-                <a
-                  href={link.href}
-                  class="text-primary-default hover:text-secondary-default after:hover:bg-primary-default dark:text-secondary-default hover:dark:text-primary-default after:hover:dark:bg-secondary-default"
-                  onMouseEnter$={() => (activeMenuItem.value = link.title)}
-                  onMouseLeave$={() => (activeMenuItem.value = "")}
-                >
-                  <span>{link.title}</span>{" "}
-                  <span class="hp-nav-number font-mono">0{idx + 1}</span>
-                </a>
-              </div>
+              <HomeNavigationLink
+                idx={idx}
+                key={idx}
+                activeMenuItem={activeMenuItem}
+                link={link}
+              />
             );
           })}
         </ul>
       </nav>
+    </div>
+  );
+});
+
+type HomeNavigationLinkProps = {
+  idx: number;
+  activeMenuItem: Signal<string>;
+  link: { title: string; href: string; ariaLabel: string };
+};
+
+const HomeNavigationLink = component$<HomeNavigationLinkProps>((props) => {
+  const { idx, activeMenuItem, link } = props;
+  const flyRef = useFlyInOnce(idx);
+  return (
+    <div key={idx} class="overflow-hidden">
+      <a
+        href={link.href}
+        class="text-primary-default hover:text-secondary-default after:hover:bg-primary-default dark:text-secondary-default hover:dark:text-primary-default after:hover:dark:bg-secondary-default"
+        onMouseEnter$={() => (activeMenuItem.value = link.title)}
+        onMouseLeave$={() => (activeMenuItem.value = "")}
+      >
+        <span ref={flyRef}>{link.title}</span>{" "}
+        <span class="hp-nav-number font-mono">0{idx + 1}</span>
+      </a>
     </div>
   );
 });
