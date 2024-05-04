@@ -7,7 +7,7 @@ export interface ButtonProps {
 
 export const Button = component$<ButtonProps>((props) => {
   const { kind = "primary", size = "medium", shape = "default" } = props;
-  const sharedClasses = "shadow-sm font-display";
+  const sharedClasses = "shadow-sm font-sans";
   const shapeClasses = {
     default: "rounded",
     pill: "rounded-full",
@@ -15,7 +15,7 @@ export const Button = component$<ButtonProps>((props) => {
   };
   const kindClasses = {
     primary:
-      "bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+      "bg-primary-default text-white hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-default",
     secondary:
       "bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50",
   };

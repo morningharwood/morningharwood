@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://morningharwood.deno.dev/sitemap.xml

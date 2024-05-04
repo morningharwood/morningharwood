@@ -72,7 +72,7 @@ const HomeSubheader = component$(() => {
         </div>
         <div class="hp-subheader-info-wrapper after:bg-primary-default after:dark:bg-secondary-default">
           <p class="hp-subheader-desc">A portfolio by Matthew Harwood </p>
-          <p class="hp-subheader-position">Engineering Manager</p>
+          <p class="hp-subheader-position font-display">Engineering Manager</p>
           <p class="hp-subheader-company">@ UBER | PRESENT</p>
         </div>
       </div>
