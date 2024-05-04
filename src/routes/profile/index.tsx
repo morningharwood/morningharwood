@@ -5,8 +5,8 @@ const Profile = component$(() => {
   return (
     <>
       <SiteNavigation />
-      <article>
-        <section class="container m-auto grid grid-cols-4 gap-6">
+      <article class="h-full">
+        <section class="container m-auto grid h-full grid-cols-4 gap-6">
           <div class="col-span-2 grid items-center justify-center text-primary-default dark:text-secondary-default">
             <div>
               <h1 class="pb-5 text-5xl">Engineering Manager</h1>
