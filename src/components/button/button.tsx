@@ -33,6 +33,11 @@ export const Button = component$<ButtonProps>((props) => {
     xl: "px-3 py-2 text-sm",
     xxl: "px-3.5 py-2.5 text-sm",
   };
+  const action = {
+    onClick: $(function () {
+      onClick();
+    }),
+  };
 
   return (
     <button
@@ -43,7 +48,7 @@ export const Button = component$<ButtonProps>((props) => {
         sizeClasses[size],
         kindClasses[kind],
       ]}
-      onClick$={$(onClick)}
+      onClick$={action.onClick}
     >
       <Slot></Slot>
     </button>
