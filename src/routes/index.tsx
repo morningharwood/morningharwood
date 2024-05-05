@@ -13,7 +13,7 @@ import { metadataDefaults } from "~/data/meta-factory";
 
 export default component$(() => {
   const activeMenuItem = useSignal("");
-  console.log(activeMenuItem.value);
+
   const data: RouteData = {
     value: {
       links: [

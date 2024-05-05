@@ -1,21 +1,22 @@
-import { component$ } from "@builder.io/qwik";
+import { $, component$ } from "@builder.io/qwik";
 import { SiteNavigation } from "#components/site-navigation/site-navigation";
 import { Button } from "#components/button/button";
 
 const Profile = component$(() => {
+  const onClick = $(() => (location.href = "mailto:matthhar12@gmail.com"));
   return (
     <>
       <SiteNavigation />
       <article class="h-full">
-        <section class="bg-secondary-default dark:bg-primary-default">
+        <section class="h-full bg-secondary-default dark:bg-primary-default">
           <section
-            class="border-box relative mx-auto flex bg-inherit pb-12 text-current lg:px-5 lg:pb-48 lg:pt-0 "
+            class="border-box relative mx-auto flex h-full bg-inherit pb-12 text-current lg:px-5 lg:pb-48 lg:pt-0"
             data-title="Highlight Container"
           >
-            <div class="container mx-auto text-primary-default dark:text-secondary-default">
-              <div class="h-full w-full opacity-100 transition duration-500 ease-in-out">
-                <div class="grid-rows-auto grid grid-cols-12 gap-4 md:gap-10 ">
-                  <div class="col-span-12  mt-8 px-8 lg:col-span-6 lg:mt-0 lg:px-0">
+            <div class="container mx-auto h-full text-primary-default dark:text-secondary-default">
+              <div class="h-full h-full w-full opacity-100 transition duration-500 ease-in-out">
+                <div class="grid-rows-auto grid h-full grid-cols-12 gap-4 md:gap-10">
+                  <div class="col-span-12  mt-8 h-full px-8 lg:col-span-6 lg:mt-0 lg:px-0">
                     <div class="flex h-full flex-col items-start justify-center ">
                       <h2 class="text-left font-display text-3xl uppercase text-current">
                         Engineering Manager
@@ -25,7 +26,7 @@ const Profile = component$(() => {
                           👋🏻 I thrive on the opportunities to lead teams, mentor
                           others, transform careers, inspire creativity and
                           foster great relationships. I am a passionate engineer
-                          with 10 years of experience delivering innovative and
+                          with 10+ years of experience delivering innovative and
                           high quality products for some of the world’s most
                           well known brands. I am a specialist in web
                           technologies, with a deep understanding of web
@@ -36,14 +37,19 @@ const Profile = component$(() => {
                           matter.
                         </p>
                       </div>
-                      <Button kind="secondary" shape="default" size="large">
-                        <span class="uppercase">Email Me</span>
+                      <Button
+                        kind="secondary"
+                        shape="square"
+                        size="large"
+                        onClick={onClick}
+                      >
+                        <span>Email Me</span>
                       </Button>
                     </div>
                   </div>
-                  <div class="  order-first  col-span-12 max-h-screen lg:order-none lg:col-span-6">
+                  <div class="order-first  col-span-12 max-h-screen overflow-hidden lg:order-none lg:col-span-6 ">
                     <video
-                      class="h-full w-full object-cover"
+                      class=" h-full w-full overflow-hidden object-cover"
                       poster="https://res.cloudinary.com/morningharwood/image/upload/f_auto,q_auto/v1590168964/.png"
                       muted
                       autoplay
@@ -97,21 +103,22 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           Uber
                         </span>
-                        <span class="mb-5 text-left font-serif text-base text-primary-hover">
-                          Engineering Engineer
+                        <span class="text-accent-default mb-5 text-left font-serif text-base">
+                          Engineering Manager
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
                           May 2022 ~ Today
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
-                          Works on building and maintaining uber.com.
+                          People Managing 10+ amazing software engineers that
+                          build and maintain uber.com.
                         </span>
                       </li>
                       <li class="mt-8 flex flex-col">
                         <span class="currentColor text-left font-serif text-base  ">
                           Uber
                         </span>
-                        <span class="mb-5 text-left font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5 text-left font-serif text-base">
                           Senior Software Engineer
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -125,7 +132,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           Uber
                         </span>
-                        <span class="mb-5 text-left  font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5  text-left font-serif text-base">
                           Senior Design Engineer
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -140,7 +147,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           R/GA @ Google Mountain View
                         </span>
-                        <span class="mb-5 text-left font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5 text-left font-serif text-base">
                           Senior Software Engineer
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -155,7 +162,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           AKQA S.F
                         </span>
-                        <span class="mb-5 text-left  font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5  text-left font-serif text-base">
                           Creative Developer
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -172,7 +179,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           QOMO HiteVision
                         </span>
-                        <span class="mb-5 text-left  font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5  text-left font-serif text-base">
                           Web Developer
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -195,7 +202,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           Simon Fraser University
                         </span>
-                        <span class="mb-5 text-left  font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5  text-left font-serif text-base">
                           B.S. Interactive Systems
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -213,7 +220,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           Oakland Community College
                         </span>
-                        <span class="mb-5 text-left font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5 text-left font-serif text-base">
                           Software Engineering Associate’s Degree
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -225,7 +232,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           Wayne State University
                         </span>
-                        <span class="mb-5 text-left  font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5  text-left font-serif text-base">
                           B.A. Asian Studies
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -240,7 +247,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           Oakland Community College
                         </span>
-                        <span class="mb-5 text-left font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5 text-left font-serif text-base">
                           Liberal Arts Associate’s Degree
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
@@ -257,7 +264,7 @@ const Profile = component$(() => {
                         <span class="currentColor text-left font-serif text-base  ">
                           R/GA
                         </span>
-                        <span class="mb-5 text-left  font-serif text-base text-primary-hover">
+                        <span class="text-accent-default mb-5  text-left font-serif text-base">
                           BotBot
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">

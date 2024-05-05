@@ -14,8 +14,16 @@ const RunningHeader = component$(() => {
   const shuffledInterests = shuffle(interests);
   const interestsMaxIndex = shuffledInterests.length - 1;
   useStylesScoped$(`
-    .line {
-      right: calc(-100% + 2rem);
+  
+    @media (orientation: landscape) {
+     .line {
+        right: calc(-100% + 2rem);
+      }
+    }
+     @media (orientation: portrait) {
+     .line {
+        right: auto
+      }
     }
     .line:before {
       content: "";
@@ -40,7 +48,7 @@ const RunningHeader = component$(() => {
 
   return (
     <p
-      class="line absolute -top-8 flex w-full origin-left rotate-90 items-center justify-start font-display text-xs before:bg-primary-default dark:before:bg-secondary-default"
+      class="line absolute -top-8 flex w-full origin-left items-center justify-start font-display text-xs before:bg-primary-default dark:before:bg-secondary-default md:rotate-90"
       onMouseEnter$={() => (play.value = false)}
       onMouseLeave$={() => (play.value = true)}
     >

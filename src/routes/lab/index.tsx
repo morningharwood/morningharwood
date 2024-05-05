@@ -6,22 +6,22 @@ import { useContent, Link } from "@builder.io/qwik-city";
 
 const Lab = component$(() => {
   const { menu } = useContent();
-  console.log(JSON.stringify(menu, null, 2));
+
   return (
     <>
       <SiteNavigation />
-      <div class="container mx-auto my-8 w-full">
-        <h1 class="mb-8 text-primary-default dark:text-secondary-default">
+      <div class="container mx-auto my-8 w-full p-6 md:p-0">
+        <h1 class="mb-8 text-5xl text-primary-default dark:text-secondary-default">
           Labs
         </h1>
-        <div class="grid w-full grid-cols-4">
+        <div class=" w-full">
           {menu
             ? menu.items?.map((item, k0) => (
-                <div key={k0}>
+                <div key={k0} class="grid  grid-cols-2 gap-4">
                   {item.items?.map((item, k1) => (
                     <div
                       key={k1}
-                      class="border-1 col-span-1 border dark:border-secondary-default"
+                      class="border-1 col-span-2 border dark:border-secondary-default md:col-span-1"
                     >
                       <div class="max-w-sm overflow-hidden rounded shadow-lg">
                         <div class="px-6 py-4">
