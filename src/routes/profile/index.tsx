@@ -1,9 +1,13 @@
-import { $, component$ } from "@builder.io/qwik";
+import { $, component$, useSignal } from "@builder.io/qwik";
 import { SiteNavigation } from "#components/site-navigation/site-navigation";
 import { Button } from "#components/button/button";
+import { Dialog } from "#components/dialog/dialog";
 
 const Profile = component$(() => {
+  const isOpen = useSignal(false);
   const onClick = $(() => (location.href = "mailto:matthhar12@gmail.com"));
+  const openUberWork = $(() => (isOpen.value = true));
+  const closeUberWork = $(() => (isOpen.value = false));
   return (
     <>
       <SiteNavigation />
@@ -14,7 +18,7 @@ const Profile = component$(() => {
             data-title="Highlight Container"
           >
             <div class="container mx-auto h-full text-primary-default dark:text-secondary-default">
-              <div class="h-full h-full w-full opacity-100 transition duration-500 ease-in-out">
+              <div class="h-full w-full opacity-100 transition duration-500 ease-in-out">
                 <div class="grid-rows-auto grid h-full grid-cols-12 gap-4 md:gap-10">
                   <div class="col-span-12  mt-8 h-full px-8 lg:col-span-6 lg:mt-0 lg:px-0">
                     <div class="flex h-full flex-col items-start justify-center ">
@@ -113,6 +117,51 @@ const Profile = component$(() => {
                           People Managing 10+ amazing software engineers that
                           build and maintain uber.com.
                         </span>
+                        <span class="mt-2">
+                          <Button
+                            kind="secondary"
+                            shape="default"
+                            size="small"
+                            onClick={openUberWork}
+                          >
+                            Learn More
+                          </Button>
+                        </span>
+                        <Dialog isOpen={isOpen} close={closeUberWork}>
+                          <ul>
+                            <li class={"mb-4"}>
+                              <h2 class={"font-bold"}>
+                                Creative Optimization: Maximizing Marketing and
+                                Engineering Efficiencies Through Machine
+                                Learning Experimentation
+                              </h2>
+                              <a
+                                class={"underline"}
+                                target={"_BLANK"}
+                                href={
+                                  "https://docs.google.com/document/d/17oDsg15pvYq8mgwzfRvhgQo2YHld8btSqil9-RY6yaE"
+                                }
+                              >
+                                Learn More →
+                              </a>
+                            </li>
+                            <li>
+                              <h2 class={"font-bold"}>
+                                Dynamic Templates: Empowering SEO and Web Page
+                                Creation
+                              </h2>
+                              <a
+                                class={"underline"}
+                                target={"_BLANK"}
+                                href={
+                                  "https://docs.google.com/document/d/17oDsg15pvYq8mgwzfRvhgQo2YHld8btSqil9-RY6yaE"
+                                }
+                              >
+                                Learn More →
+                              </a>
+                            </li>
+                          </ul>
+                        </Dialog>
                       </li>
                       <li class="mt-8 flex flex-col">
                         <span class="currentColor text-left font-serif text-base  ">
@@ -151,7 +200,7 @@ const Profile = component$(() => {
                           Senior Software Engineer
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
-                          August 2015 ~ Decemeber 2018
+                          August 2015 ~ December 2018
                         </span>
                         <span class="currentColor text-left font-serif text-base  ">
                           Worked as an embedded Software Engineer for Google’s

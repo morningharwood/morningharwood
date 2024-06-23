@@ -1,6 +1,6 @@
 {
-  "name": "my-qwik-empty-starter",
-  "description": "App with Routing built-in ready to create your app",
+  "name": "Good Morning Harwood",
+  "description": "A Portfolio created by Matthew Harwood - Engineering Manager",
   "engines": {
     "node": ">=15.0.0"
   },
@@ -63,5 +63,8 @@
     "vite": "^5.0.12",
     "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "pixi.js": "^8.1.5"
   }
 }
